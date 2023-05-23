@@ -1,0 +1,14 @@
+<drawables>
+    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+<bitmap id="firstquar" filename="quar1.png" x = "center" dithering="none"/>
+<bitmap id="thirdquar" filename="quar3.png" x = "center" dithering="none"/>
+<bitmap id="newmoon" filename="new.png" x = "center" dithering="none"/>
+<bitmap id="full" filename="full.png" x = "center" dithering="none"/>
+<bitmap id="waxcres" filename="waxcres.png" x = "center" dithering="none"/>
+<bitmap id="wancres" filename="wancres.png" x = "center" dithering="none"/>
+<bitmap id="waxgib" filename="waxgib.png"  x = "center" dithering="none"/>
+<bitmap id="wangib" filename="wangib.png" x = "center" dithering="none"/>
+     <bitmap id="dog1" filename="pet3.png" dithering="none" />
+     <bitmap id="dog0" filename="pet2.png" dithering="none" />
+</drawables>
+  

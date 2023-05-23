@@ -1,0 +1,6 @@
+<fonts>
+<font id = "WeatherFont" filename = "bolderdigital.fnt" filter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%{@}=: ^()[?]_%.,-"/>
+<font id = "smallFont" filename = "xsmall.fnt" filter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890{}:~  #^$[]@*+_%=~.?,-"/>
+<font id = "xsmallFont" filename = "evensmallerdigwordnum.fnt" filter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890{}:~# @*^$[+=]_~?%.,-"/>
+<font id = "smallpoke" filename = "smallpoke.fnt" filter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890{}:~# @*^$[+=]_~?%.,-"/>
+</fonts>
