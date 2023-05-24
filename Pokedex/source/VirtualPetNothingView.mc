@@ -230,7 +230,7 @@ dc.drawText( 238*VXAdjust, 140*VYAdjust, xsmallFont,(sunsetHour + ":" + sunset.m
 dc.drawText( 238*VXAdjust, 140*VYAdjust, wordFont,("SET  "), Graphics.TEXT_JUSTIFY_RIGHT );
 
 moon1.draw(dc);
-var dog = dogPhase(today.sec,8000 );//userSTEPS
+var dog = dogPhase(today.sec,1500 );//userSTEPS
 dog.draw(dc);
 var fakesteps = userSTEPS;
 dc.setPenWidth(16);
@@ -291,8 +291,8 @@ function dogPhase(seconds, steps){
  })),
         (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog1,
-            :locX=> venus2X*1.05,
-            :locY=>venus2Y*1.05
+            :locX=> venus2X*1.3,
+            :locY=>venus2Y*1.3
         })),
                 (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog2,
@@ -316,13 +316,13 @@ function dogPhase(seconds, steps){
         })),
                 (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog6,
-            :locX=> venus2X*1.05,
-            :locY=>venus2Y*1.05
+            :locX=> venus2X*1.3,
+            :locY=>venus2Y*1.2
         })),
                 (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog7,
-            :locX=> venus2X+2,
-            :locY=>venus2Y+3
+            :locX=> venus2X*1.3,
+            :locY=>venus2Y*1.2
         })),
         (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog8,
