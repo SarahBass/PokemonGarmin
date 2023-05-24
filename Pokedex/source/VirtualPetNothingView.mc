@@ -23,6 +23,7 @@ function onUpdate(dc as Dc) as Void {
        var adjustTextY = 1;
        if (screenHeightY ==416){ adjustTextX = 1.15; adjustTextY = 1.17;}
        else if (screenHeightY ==390){ adjustTextX = 1.1; adjustTextY = 1.1;}
+       else if (screenHeightY ==454){ adjustTextX = 1.25; adjustTextY = 1.28;}
        else{ adjustTextX = 1; adjustTextY = 1;}
        var VXAdjust = ((System.getDeviceSettings().screenWidth)/360)*adjustTextX;
        var VYAdjust =((System.getDeviceSettings().screenHeight)/360)*adjustTextY;
@@ -226,7 +227,7 @@ dc.setColor(0x212D21, Graphics.COLOR_TRANSPARENT);
 dc.drawText(94*VXAdjust,140*VYAdjust, xsmallFont, (sunriseHour + ":" + sunrise.min.format("%02u")), Graphics.TEXT_JUSTIFY_LEFT );
 dc.drawText(125*VXAdjust,140*VYAdjust, wordFont, ("  RIS  "), Graphics.TEXT_JUSTIFY_LEFT );
 dc.drawText(centerX,88*VYAdjust, xsmallFont, userBattery,Graphics.TEXT_JUSTIFY_CENTER);
-dc.drawText(centerX*VXAdjust,140*VYAdjust, wordFont,"+",Graphics.TEXT_JUSTIFY_CENTER);      
+dc.drawText(centerX,140*VYAdjust, wordFont,"+",Graphics.TEXT_JUSTIFY_CENTER);      
 dc.drawText(centerX, 128*VYAdjust, xsmallFont, userHEART, Graphics.TEXT_JUSTIFY_CENTER ); 
 dc.drawText( 238*VXAdjust, 140*VYAdjust, xsmallFont,(sunsetHour + ":" + sunset.min.format("%02u")), Graphics.TEXT_JUSTIFY_LEFT );
 dc.drawText( 238*VXAdjust, 140*VYAdjust, wordFont,("SET  "), Graphics.TEXT_JUSTIFY_RIGHT );
@@ -289,12 +290,12 @@ function dogPhase(seconds, steps){
     (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog0,
             :locX=> venus2X*1.15,
-            :locY=>venus2Y*1.1
+            :locY=>venus2Y*1.02
  })),
         (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog1,
             :locX=> venus2X*1.15,
-            :locY=>venus2Y*1.1
+            :locY=>venus2Y*1.02
         })),
                 (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog2,
