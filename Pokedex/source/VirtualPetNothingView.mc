@@ -66,9 +66,10 @@ if (myStats.battery != null){batteryMeter = myStats.battery.toNumber();}else{bat
     }}
      else {TEMP = "000";}
     
-    var cond;
+    var cond=0;
     if (getCC != null){ cond = getCC.condition.toNumber();}
     else{cond = 0;}//sun
+ /*
  var AMPM = "";       
     if (!System.getDeviceSettings().is24Hour) {
         if (clockTime.hour > 12) {
@@ -76,7 +77,7 @@ if (myStats.battery != null){batteryMeter = myStats.battery.toNumber();}else{bat
             }else{
                 AMPM = "M";
             }}
-
+*/
  var positions;
         if (Toybox.Weather.getCurrentConditions().observationLocationPosition == null){
         positions=new Position.Location( 
@@ -149,51 +150,76 @@ dc.setColor(0x7B8863, Graphics.COLOR_TRANSPARENT);
 dc.fillCircle(centerX, centerX, centerX) ;     
 dc.setColor(0x68664F, Graphics.COLOR_TRANSPARENT);        
 dc.drawCircle(centerX, centerX, centerX) ;  
-dc.setColor(0x849F8C, Graphics.COLOR_TRANSPARENT);        
+dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);        
 dc.fillCircle(centerX, centerX,centerX*4/5) ; 
-dc.setColor(0x94B49F, Graphics.COLOR_TRANSPARENT);        
-dc.fillCircle(centerX, centerX,centerX*2/3) ;     
+//dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);        
+//dc.fillCircle(centerX, centerX,centerX*2/3) ; 
+dc.setColor(0x4D6A5D, Graphics.COLOR_TRANSPARENT); 
+dc.setPenWidth(125);       
+dc.drawArc(centerX, centerX, centerX*1/3, Graphics.ARC_CLOCKWISE , 180, 0) ;          
+
 dc.setColor(0x426058, Graphics.COLOR_TRANSPARENT);  
 dc.fillRectangle(centerX*150/360, centerX*322/360, centerX*1.2,centerX*35/360 ); 
-dc.fillRectangle(centerX*160/360, centerX*2*190/360, centerX*80/360,centerX*80/360 ); 
-dc.fillRectangle(centerX*236*2/360, centerX*2*190/360, centerX*80/360,centerX*80/360 ); 
-dc.setColor(0x6B9884, Graphics.COLOR_TRANSPARENT);        
+dc.fillRectangle(centerX*170/360, centerX*2*190/360, centerX*80/360,centerX*80/360 ); 
+//dc.fillRectangle(centerX*236*2/360, centerX*2*190/360, centerX*80/360,centerX*80/360 ); 
+dc.setColor(0x6B9884, Graphics.COLOR_TRANSPARENT); 
+dc.setPenWidth(10);       
 dc.drawCircle(centerX, centerX, centerX*2/3) ;  
 dc.setPenWidth(3);
 dc.setColor(0x4F563F, Graphics.COLOR_TRANSPARENT); 
 dc.drawRectangle(centerX*150/360, centerX*322/360, centerX*1.2,centerX*35/360 ); 
-dc.drawRectangle(centerX*160/360, centerX*2*190/360, centerX*80/360,centerX*80/360 ); 
-dc.drawRectangle(centerX*236*2/360, centerX*2*190/360, centerX*80/360,centerX*80/360 );
+dc.drawRectangle(centerX*170/360, centerX*2*190/360, centerX*80/360,centerX*80/360 ); 
+//dc.drawRectangle(centerX*236*2/360, centerX*2*190/360, centerX*80/360,centerX*80/360 );
 
 dc.setColor(0x3C5651, Graphics.COLOR_TRANSPARENT);  
  dc.drawText(centerX,159*VYAdjust,xsmallFont,("OOOOOOOOOOOOOO"), Graphics.TEXT_JUSTIFY_CENTER );
 //~ fire ^footstep =battery + heart       
-dc.setColor(0x5E898A, Graphics.COLOR_TRANSPARENT);
-if (!System.getDeviceSettings().is24Hour) {
+//dc.setColor(0x628074, Graphics.COLOR_TRANSPARENT);
+/*if (!System.getDeviceSettings().is24Hour) {
   if (hours>9){dc.drawText( centerX, 250*VYAdjust, smallFont,  "18:88M",  Graphics.TEXT_JUSTIFY_CENTER );}
   else{dc.drawText( centerX, 250*VYAdjust, smallFont,  "8:88M",  Graphics.TEXT_JUSTIFY_CENTER );}}
-else{dc.drawText( centerX, 250*VYAdjust, smallFont,  "88:88",  Graphics.TEXT_JUSTIFY_CENTER );}
+else{dc.drawText( centerX, 250*VYAdjust, smallFont,  "88:88",  Graphics.TEXT_JUSTIFY_CENTER );}*/
 dc.drawText( centerX, 88*VYAdjust, xsmallFont, "0000", Graphics.TEXT_JUSTIFY_CENTER  );
 dc.drawText( centerX, 128*VYAdjust, xsmallFont, "88888", Graphics.TEXT_JUSTIFY_CENTER  );
-dc.drawText( 103*VXAdjust, 230*VYAdjust, wordFont,  ("00000"), Graphics.TEXT_JUSTIFY_CENTER );
-dc.drawText(260*VXAdjust,230*VYAdjust, wordFont,("88888"),Graphics.TEXT_JUSTIFY_CENTER);
+//dc.drawText( 103*VXAdjust, 230*VYAdjust, wordFont,  ("00000"), Graphics.TEXT_JUSTIFY_CENTER );
+//dc.drawText(260*VXAdjust,230*VYAdjust, wordFont,("88888"),Graphics.TEXT_JUSTIFY_CENTER);
  dc.drawText( 238*VXAdjust, 140*VYAdjust, xsmallFont,("8:88"), Graphics.TEXT_JUSTIFY_LEFT );
 dc.drawText(94*VXAdjust,140*VYAdjust, xsmallFont, ("8:88"), Graphics.TEXT_JUSTIFY_LEFT );
-dc.setColor(0x17231B, Graphics.COLOR_TRANSPARENT);
-dc.drawText(centerX,  250*VYAdjust,smallFont, timeString+AMPM,  Graphics.TEXT_JUSTIFY_CENTER  );
-dc.setColor(0x212D21, Graphics.COLOR_TRANSPARENT);    
-dc.drawText( 255*VXAdjust, 192*VYAdjust, smallFont, weather(0), Graphics.TEXT_JUSTIFY_CENTER );
+dc.setColor(0x94B49F, Graphics.COLOR_TRANSPARENT);
+dc.drawText(centerX,  250*VYAdjust,smallFont, timeString,  Graphics.TEXT_JUSTIFY_CENTER  );
+ 
+//dc.drawText( 255*VXAdjust, 192*VYAdjust, smallFont, weather(cond), Graphics.TEXT_JUSTIFY_CENTER );
   dc.drawText(centerX,159*VYAdjust,wordFont,(weekdayArray[today.day_of_week]+" , "+ monthArray[today.month]+" "+ today.day +" " +today.year), Graphics.TEXT_JUSTIFY_CENTER );
- dc.drawText( 260*VXAdjust, 230*VYAdjust, wordFont,(TEMP+" " +FC), Graphics.TEXT_JUSTIFY_CENTER );
+// dc.drawText( 260*VXAdjust, 230*VYAdjust, wordFont,(TEMP+" " +FC), Graphics.TEXT_JUSTIFY_CENTER );
 
 
-if (today.sec%3==0){dc.drawText( 100*VXAdjust,  198*VYAdjust, wordFont,  (" ~ "), Graphics.TEXT_JUSTIFY_CENTER );
-dc.drawText( 103*VXAdjust, 230*VYAdjust, wordFont,  (" "+userCAL), Graphics.TEXT_JUSTIFY_CENTER );}
-else if (today.sec%3==1){dc.drawText( 100*VXAdjust,  198*VYAdjust, wordFont,  (" ^ "), Graphics.TEXT_JUSTIFY_CENTER );
-dc.drawText( 103*VXAdjust, 230*VYAdjust, wordFont,  (" "+userSTEPS), Graphics.TEXT_JUSTIFY_CENTER );}
+
+if (today.sec%4==0){
+dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);  
+dc.drawText( 105*VXAdjust,  198*VYAdjust, wordFont,  (" ~ "), Graphics.TEXT_JUSTIFY_CENTER );
+dc.setColor(0x426058, Graphics.COLOR_TRANSPARENT); 
+dc.drawText( 108*VXAdjust, 230*VYAdjust, wordFont,  (" "+userCAL), Graphics.TEXT_JUSTIFY_CENTER );}
+
+else if (today.sec%4==1){
+dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
+dc.drawText( 105*VXAdjust,  198*VYAdjust, wordFont,  (" ^ "), Graphics.TEXT_JUSTIFY_CENTER );
+dc.setColor(0x426058, Graphics.COLOR_TRANSPARENT); 
+dc.drawText( 108*VXAdjust, 230*VYAdjust, wordFont,  (" "+userSTEPS), Graphics.TEXT_JUSTIFY_CENTER );}
+
+else if (today.sec%4==2){
+dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
+dc.drawText( 105*VXAdjust,  190*VYAdjust, smallFont, weather(cond), Graphics.TEXT_JUSTIFY_CENTER );
+dc.setColor(0x426058, Graphics.COLOR_TRANSPARENT); 
+dc.drawText( 108*VXAdjust, 230*VYAdjust, wordFont, (TEMP+" " +FC), Graphics.TEXT_JUSTIFY_CENTER );}
 else{
-if (numberNotify<60){dc.drawText(100*VXAdjust, 194*VYAdjust, smallpoke,arrayPokemon[numberNotify ],Graphics.TEXT_JUSTIFY_CENTER);} 
-dc.drawText(103*VXAdjust, 230*VYAdjust, wordFont,userNotify,Graphics.TEXT_JUSTIFY_CENTER); }
+if (numberNotify<60){
+ dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT); 
+dc.drawText(105*VXAdjust, 194*VYAdjust, smallpoke,arrayPokemon[numberNotify ],Graphics.TEXT_JUSTIFY_CENTER);}
+dc.setColor(0x426058, Graphics.COLOR_TRANSPARENT);  
+dc.drawText(108*VXAdjust, 230*VYAdjust, wordFont,userNotify,Graphics.TEXT_JUSTIFY_CENTER);
+ }
+
+dc.setColor(0x212D21, Graphics.COLOR_TRANSPARENT);   
 
 dc.drawText(94*VXAdjust,140*VYAdjust, xsmallFont, (sunriseHour + ":" + sunrise.min.format("%02u")), Graphics.TEXT_JUSTIFY_LEFT );
 dc.drawText(125*VXAdjust,140*VYAdjust, wordFont, ("  RIS  "), Graphics.TEXT_JUSTIFY_LEFT );
@@ -204,7 +230,7 @@ dc.drawText( 238*VXAdjust, 140*VYAdjust, xsmallFont,(sunsetHour + ":" + sunset.m
 dc.drawText( 238*VXAdjust, 140*VYAdjust, wordFont,("SET  "), Graphics.TEXT_JUSTIFY_RIGHT );
 
 moon1.draw(dc);
-var dog = dogPhase(today.sec);
+var dog = dogPhase(today.sec,userSTEPS );
 dog.draw(dc);
 var fakesteps = userSTEPS;
 dc.setPenWidth(16);
@@ -253,7 +279,7 @@ function weather(cond) {
 
 
 
-function dogPhase(seconds){
+function dogPhase(seconds, steps){
   var screenHeightY = System.getDeviceSettings().screenHeight;
   var venus2X = 120*screenHeightY/360;
   var venus2Y = 150*screenHeightY/360;
@@ -267,9 +293,105 @@ function dogPhase(seconds){
             :rezId=>Rez.Drawables.dog1,
             :locX=> venus2X+2,
             :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog2,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog3,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog4,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                   (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog5,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog6,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog7,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog8,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+(new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog9,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog10,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog11,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog12,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog13,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog14,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog15,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog16,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog17,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog18,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog19,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+        (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog20,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
         }))
         ];
-  return (dogARRAY[seconds%2]);
+        return dogARRAY[steps/500 + seconds%2 +  steps%2*2]  ;
+  
 }
 
 private function getHeartRate() {// initialize it to null
