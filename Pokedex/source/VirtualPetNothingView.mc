@@ -390,7 +390,9 @@ function dogPhase(seconds, steps){
             :locY=>venus2Y+3
         }))
         ];
-        return dogARRAY[steps/500 + seconds%2 +  steps%2*2]  ;
+        if (steps > 14000){return dogARRAY[seconds%2];}else{return dogARRAY[steps/500 + seconds%2 +  steps%2*2]  ;}
+        
+        
   
 }
 
