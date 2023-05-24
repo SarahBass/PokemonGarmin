@@ -230,7 +230,7 @@ dc.drawText( 238*VXAdjust, 140*VYAdjust, xsmallFont,(sunsetHour + ":" + sunset.m
 dc.drawText( 238*VXAdjust, 140*VYAdjust, wordFont,("SET  "), Graphics.TEXT_JUSTIFY_RIGHT );
 
 moon1.draw(dc);
-var dog = dogPhase(today.sec,userSTEPS );
+var dog = dogPhase(today.sec,8000 );//userSTEPS
 dog.draw(dc);
 var fakesteps = userSTEPS;
 dc.setPenWidth(16);
@@ -286,13 +286,13 @@ function dogPhase(seconds, steps){
   var dogARRAY = [
     (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog0,
-            :locX=> venus2X,
-            :locY=>venus2Y
+            :locX=> venus2X*1.05,
+            :locY=>venus2Y*1.05
  })),
         (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog1,
-            :locX=> venus2X+2,
-            :locY=>venus2Y+3
+            :locX=> venus2X*1.05,
+            :locY=>venus2Y*1.05
         })),
                 (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog2,
@@ -316,8 +316,8 @@ function dogPhase(seconds, steps){
         })),
                 (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog6,
-            :locX=> venus2X+2,
-            :locY=>venus2Y+3
+            :locX=> venus2X*1.05,
+            :locY=>venus2Y*1.05
         })),
                 (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog7,
@@ -388,9 +388,74 @@ function dogPhase(seconds, steps){
             :rezId=>Rez.Drawables.dog20,
             :locX=> venus2X+2,
             :locY=>venus2Y+3
-        }))
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog21,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog22,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog23,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog24,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog25,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog26,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog27,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog28,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog29,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog30,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog31,
+            :locX=> venus2X+2,
+            :locY=>venus2Y+3
+        })),
+                (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog32,
+            :locX=> venus2X*1.25,
+            :locY=>venus2Y*1.25
+        })),
+                     (new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dog33,
+            :locX=> venus2X*1.25,
+            :locY=>venus2Y*1.25
+        })),
         ];
-        if (steps > 14000){return dogARRAY[seconds%2];}else{return dogARRAY[steps/500 + seconds%2 +  steps%2*2]  ;}
+        if (steps > 8000){return dogARRAY[32 + seconds%2];}else{return dogARRAY[((steps/500)*2) + seconds%2 ]  ;}
         
         
   
