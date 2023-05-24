@@ -21,7 +21,9 @@ function onUpdate(dc as Dc) as Void {
        var screenHeightY = System.getDeviceSettings().screenHeight;
        var adjustTextX = 1;
        var adjustTextY = 1;
-       if (screenHeightY > 360){ adjustTextX = 1.15; adjustTextY = 1.17;}
+       if (screenHeightY ==416){ adjustTextX = 1.15; adjustTextY = 1.17;}
+       else if (screenHeightY ==390){ adjustTextX = 1.1; adjustTextY = 1.1;}
+       else{ adjustTextX = 1; adjustTextY = 1;}
        var VXAdjust = ((System.getDeviceSettings().screenWidth)/360)*adjustTextX;
        var VYAdjust =((System.getDeviceSettings().screenHeight)/360)*adjustTextY;
        var myStats = System.getSystemStats();
@@ -286,13 +288,13 @@ function dogPhase(seconds, steps){
   var dogARRAY = [
     (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog0,
-            :locX=> venus2X*1.05,
-            :locY=>venus2Y*1.05
+            :locX=> venus2X*1.15,
+            :locY=>venus2Y*1.1
  })),
         (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog1,
-            :locX=> venus2X*1.3,
-            :locY=>venus2Y*1.3
+            :locX=> venus2X*1.15,
+            :locY=>venus2Y*1.1
         })),
                 (new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dog2,
