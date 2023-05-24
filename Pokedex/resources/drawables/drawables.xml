@@ -40,7 +40,9 @@
                  <bitmap id="dog27" filename="pet27.png" dithering="none" />
                   <bitmap id="dog28" filename="pet28.png" dithering="none" />
                    <bitmap id="dog29" filename="pet29.png" dithering="none" />
-<bitmap id="dog30" filename="pet10.png" dithering="none" />
-           <bitmap id="dog31" filename="pet11.png" dithering="none" />
+<bitmap id="dog30" filename="pet30.png" dithering="none" />
+           <bitmap id="dog31" filename="pet31.png" dithering="none" />
+           <bitmap id="dog32" filename="pet32.png" dithering="none" />
+           <bitmap id="dog33" filename="pet33.png" dithering="none" />
 </drawables>
   
