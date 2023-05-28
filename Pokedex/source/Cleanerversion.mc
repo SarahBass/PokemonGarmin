@@ -191,23 +191,23 @@ dc.drawText( centerX+70,  184*VYAdjust, smallFont, weather(cond), Graphics.TEXT_
 dc.drawText( centerX+70, 230*VYAdjust, wordFont, (TEMP+" " +FC), Graphics.TEXT_JUSTIFY_CENTER );}
 
 else if (today.sec%9==3){
-    dc.setColor(0x9784BD, Graphics.COLOR_TRANSPARENT);
+    dc.setColor(0xC9BC8C, Graphics.COLOR_TRANSPARENT);
     dc.drawText( centerX+70,  184*VYAdjust, smallFont, "n", Graphics.TEXT_JUSTIFY_CENTER );
 dc.drawText( centerX+70, 230*VYAdjust, wordFont,(sunsetHour + ":" + sunset.min.format("%02u")), Graphics.TEXT_JUSTIFY_CENTER );
 }
 
 else if (today.sec%9==4){
-    dc.setColor(0x9784BD, Graphics.COLOR_TRANSPARENT);
+    dc.setColor(0xC9BC8C, Graphics.COLOR_TRANSPARENT);
     dc.drawText( centerX+70,  184*VYAdjust, smallFont, "l", Graphics.TEXT_JUSTIFY_CENTER );
 dc.drawText(centerX+70, 230*VYAdjust, wordFont, (sunriseHour + ":" + sunrise.min.format("%02u")), Graphics.TEXT_JUSTIFY_CENTER );
 }
 else if (today.sec%9==5){
-    dc.setColor(0x9784BD, Graphics.COLOR_TRANSPARENT);
+    dc.setColor(0xB75D50, Graphics.COLOR_TRANSPARENT);
 dc.drawText(centerX+70, 198*VYAdjust, wordFont,"+",Graphics.TEXT_JUSTIFY_CENTER);      
 dc.drawText(centerX+70, 230*VYAdjust, wordFont, userHEART, Graphics.TEXT_JUSTIFY_CENTER ); 
 }
 else if (today.sec%9==6 || today.sec%9==7){
-    dc.setColor(0x9784BD, Graphics.COLOR_TRANSPARENT);
+    dc.setColor(0x69FFE9, Graphics.COLOR_TRANSPARENT);
 moon1.draw(dc);
 dc.drawText( centerX+70, 230*VYAdjust, wordFont,("MOON"), Graphics.TEXT_JUSTIFY_CENTER );
 }
