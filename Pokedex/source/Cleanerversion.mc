@@ -44,8 +44,8 @@ function onUpdate(dc as Dc) as Void {
                 hours = hours.format("%02d"); }
         var timeString = Lang.format(timeFormat, [hours, clockTime.min.format("%02d")]);
         var timeStamp= new Time.Moment(Time.today().value());
-        var weekdayArray = ["Day", "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"] as Array<String>;
-        var monthArray = ["Month", "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"] as Array<String>;
+        var weekdayArray = ["Day", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"] as Array<String>;
+        var monthArray = ["Month", "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"] as Array<String>;
  var arrayPokemon = ["a","b","c", "d", "e", "f", "j", "h", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
  "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","1","2","3","4","5","6","7","8","9","0"];
  var userBattery = "000";
@@ -166,12 +166,17 @@ dc.drawArc(centerX, centerX, centerX*1/3, Graphics.ARC_CLOCKWISE , 0, 180) ;
 
 dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT); 
 dc.setPenWidth(14);       
-dc.drawCircle(centerX, centerX, (centerX*2/3)*0.93) ;  
-dc.setPenWidth(3);
+dc.drawCircle(centerX, centerX, (centerX*2/3)*0.93) ;
 
+dc.drawCircle(centerX, centerX, (centerX)*0.09) ; 
+
+dc.setPenWidth(3); 
 dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
-dc.drawText(centerX,85*VYAdjust,smallFont, timeString,  Graphics.TEXT_JUSTIFY_CENTER  ); 
-dc.drawText(centerX,155*VYAdjust,wordFont,(weekdayArray[today.day_of_week]+" , "+ monthArray[today.month]+" "+ today.day +" " +today.year), Graphics.TEXT_JUSTIFY_CENTER );
+dc.drawText(centerX,75*VYAdjust,smallFont, timeString,  Graphics.TEXT_JUSTIFY_CENTER  );
+dc.drawText(centerX,140*VYAdjust,wordFont,(weekdayArray[today.day_of_week]+" , "+ monthArray[today.month]+" "+ today.day +" " +today.year), Graphics.TEXT_JUSTIFY_CENTER );
+dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
+dc.drawText(centerX-3,(75*VYAdjust)-3,smallFont, timeString,  Graphics.TEXT_JUSTIFY_CENTER  ); 
+dc.drawText(centerX-2,(140*VYAdjust)-2,wordFont,(weekdayArray[today.day_of_week]+" , "+ monthArray[today.month]+" "+ today.day +" " +today.year), Graphics.TEXT_JUSTIFY_CENTER );
   
 //jump1
 
@@ -211,7 +216,7 @@ dc.drawText(centerX+70, 230*VYAdjust, wordFont, (sunriseHour + ":" + sunrise.min
 else if (today.sec%16==12 || today.sec%16==13){
     dc.setColor(0x69FFE9, Graphics.COLOR_TRANSPARENT);
 moon1.draw(dc);
-dc.drawText( centerX+70, 230*VYAdjust, wordFont,("MOON"), Graphics.TEXT_JUSTIFY_CENTER );
+dc.drawText( centerX+70, 230*VYAdjust, wordFont,("MooN"), Graphics.TEXT_JUSTIFY_CENTER );
 }
 else{
     dc.setColor(0xc08c55, Graphics.COLOR_TRANSPARENT);
@@ -226,7 +231,7 @@ dc.drawText(centerX+70, 230*VYAdjust, wordFont,userNotify,Graphics.TEXT_JUSTIFY_
 
 
 
-var dog = dogPhase(today.sec,500); //userSTEPS
+var dog = dogPhase(today.sec,0); //userSTEPS
 dog.draw(dc);
 
 dc.setPenWidth(17);
