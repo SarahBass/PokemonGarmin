@@ -175,38 +175,40 @@ dc.drawText(centerX,155*VYAdjust,wordFont,(weekdayArray[today.day_of_week]+" , "
   
 //jump1
 
-if (today.sec%9==0){ 
+if (today.sec%16==0 || today.sec%16==1 ){ 
 dc.setColor(0x5CBF68, Graphics.COLOR_TRANSPARENT); 
 dc.drawText( centerX+70,  198*VYAdjust, wordFont,  (" ~ "), Graphics.TEXT_JUSTIFY_CENTER );
 dc.drawText( centerX+70, 230*VYAdjust, wordFont,  (" "+userCAL), Graphics.TEXT_JUSTIFY_CENTER );}
 
-else if (today.sec%9==1){
+else if (today.sec%16==2 || today.sec%16==3 ){
     dc.setColor(0x549DB1, Graphics.COLOR_TRANSPARENT);
 dc.drawText( centerX+70,  198*VYAdjust, wordFont,  (" ^ "), Graphics.TEXT_JUSTIFY_CENTER );
 dc.drawText( centerX+70, 230*VYAdjust, wordFont,  (" "+userSTEPS), Graphics.TEXT_JUSTIFY_CENTER );}
 
-else if (today.sec%9==2){
+else if (today.sec%16==4 || today.sec%16==5 ){
+    dc.setColor(0xB75D50, Graphics.COLOR_TRANSPARENT);
+dc.drawText(centerX+70, 198*VYAdjust, wordFont,"+",Graphics.TEXT_JUSTIFY_CENTER);      
+dc.drawText(centerX+70, 230*VYAdjust, wordFont, userHEART, Graphics.TEXT_JUSTIFY_CENTER ); 
+}
+
+else if (today.sec%16==6 || today.sec%16==7 ){
     dc.setColor(0x9784BD, Graphics.COLOR_TRANSPARENT);
 dc.drawText( centerX+70,  184*VYAdjust, smallFont, weather(cond), Graphics.TEXT_JUSTIFY_CENTER );
 dc.drawText( centerX+70, 230*VYAdjust, wordFont, (TEMP+" " +FC), Graphics.TEXT_JUSTIFY_CENTER );}
 
-else if (today.sec%9==3){
+else if (today.sec%16==8 || today.sec%16==9 ){
     dc.setColor(0xC9BC8C, Graphics.COLOR_TRANSPARENT);
     dc.drawText( centerX+70,  184*VYAdjust, smallFont, "n", Graphics.TEXT_JUSTIFY_CENTER );
 dc.drawText( centerX+70, 230*VYAdjust, wordFont,(sunsetHour + ":" + sunset.min.format("%02u")), Graphics.TEXT_JUSTIFY_CENTER );
 }
 
-else if (today.sec%9==4){
+else if (today.sec%16==10 || today.sec%16==11 ){
     dc.setColor(0xC9BC8C, Graphics.COLOR_TRANSPARENT);
     dc.drawText( centerX+70,  184*VYAdjust, smallFont, "l", Graphics.TEXT_JUSTIFY_CENTER );
 dc.drawText(centerX+70, 230*VYAdjust, wordFont, (sunriseHour + ":" + sunrise.min.format("%02u")), Graphics.TEXT_JUSTIFY_CENTER );
 }
-else if (today.sec%9==5){
-    dc.setColor(0xB75D50, Graphics.COLOR_TRANSPARENT);
-dc.drawText(centerX+70, 198*VYAdjust, wordFont,"+",Graphics.TEXT_JUSTIFY_CENTER);      
-dc.drawText(centerX+70, 230*VYAdjust, wordFont, userHEART, Graphics.TEXT_JUSTIFY_CENTER ); 
-}
-else if (today.sec%9==6 || today.sec%9==7){
+
+else if (today.sec%16==12 || today.sec%16==13){
     dc.setColor(0x69FFE9, Graphics.COLOR_TRANSPARENT);
 moon1.draw(dc);
 dc.drawText( centerX+70, 230*VYAdjust, wordFont,("MOON"), Graphics.TEXT_JUSTIFY_CENTER );
